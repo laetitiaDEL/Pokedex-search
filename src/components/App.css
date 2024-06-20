@@ -1,0 +1,10 @@
+body{
+    background-color: #EF3E3E;
+    color : white;
+    font-family: sans-serif;
+}
+
+.pokemonList{
+    max-height: 97vh;
+    overflow-y: scroll;
+}
