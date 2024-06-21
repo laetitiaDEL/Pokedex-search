@@ -37,21 +37,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check if port is available
-        env:
-          START_PORT: 5173
-        run: |
-          PORT=$START_PORT
-          while ! nc -z localhost $PORT; do
-            echo "Port $PORT is in use, trying next port"
-            PORT=$((PORT + 1))
-          done
-          echo "Using port $PORT"
-
       - name: Start server
-        run: |
-          echo "Starting on port $PORT" 
-          npm run dev -- --port $PORT
+        run: npm run dev
 
       - name: Run Cypress tests
         run: npx cypress run
