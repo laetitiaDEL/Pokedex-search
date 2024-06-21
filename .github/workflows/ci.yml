@@ -44,10 +44,10 @@ jobs:
         run: npm start &
       
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v2
+        uses: npx cypress run
         with:
           start: npm start
-          wait-on: http://localhost:3000
+          wait-on: http://localhost:5174/
           browser: chrome
 
   deploy:
