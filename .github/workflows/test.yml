@@ -27,5 +27,5 @@ jobs:
         with:
           build: npm run build
           start: npm start
-          wait-on: http://localhost:3000
+          wait-on: http://localhost:5174/
           browser: chrome
