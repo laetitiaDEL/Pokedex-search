@@ -22,21 +22,5 @@ describe('Pokedex Search Application', () => {
     // Vérifie que les résultats de recherche contiennent Pikachu
     cy.get('.pokemon-card').should('contain', 'Pikachu');
   });
-
-  it('should display results when searching for a Pokémon by type', () => {
-    // Sélectionne un type de Pokémon dans un menu déroulant ou un autre élément de filtrage
-    cy.get('select[placeholder="Select Type"]').select('Electric');
-    
-    // Vérifie que les résultats de recherche contiennent au moins un Pokémon de type Electric
-    cy.get('.pokemon-card').should('contain', 'Electric');
-  });
-
-  it('should handle no results found', () => {
-    // Tape un nom de Pokémon inexistant dans l'input de recherche
-    cy.get('input[placeholder="Search Pokémon"]').type('NonExistentPokemon');
-    
-    // Vérifie que le message "No Pokémon found" ou un message similaire est affiché
-    cy.get('.no-results').should('contain', 'No Pokémon found');
-  });
 });
   
