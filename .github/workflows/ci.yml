@@ -34,11 +34,13 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Wait for application to be ready
-        run: npx wait-on http://localhost:5174/
-
       - name: Run Cypress tests
         run: npx cypress run
+        with: 
+          build: npm run build
+          start: npm start
+          wait-on: http://localhost:5174/
+          browser: chrome
 
   deploy:
     runs-on: ubuntu-latest
@@ -61,6 +63,9 @@ jobs:
 
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=build --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
