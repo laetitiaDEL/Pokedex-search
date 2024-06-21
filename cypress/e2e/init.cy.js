@@ -17,6 +17,7 @@ describe('Pokedex Search Application', () => {
   it('should display results when searching for a Pokémon by name', () => {
     // Tape un nom de Pokémon dans l'input de recherche
     cy.get('input[placeholder="Search Pokémon"]').type('Pikachu');
+    cy.get('#searchBtn').click();
     
     // Vérifie que les résultats de recherche contiennent Pikachu
     cy.get('.pokemon-card').should('contain', 'Pikachu');
