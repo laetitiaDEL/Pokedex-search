@@ -37,12 +37,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install start-server-and-test
-        run: npm install --save-dev start-server-and-test
-
-      - name: Start the application and run tests
-        run: npx start-server-and-test start http://localhost:5174 npx cypress run
-
       - name: Run Cypress tests
         run: npx cypress run
         with: 
@@ -50,8 +44,6 @@ jobs:
           start: npm start
           wait-on: http://localhost:5174/
           browser: chrome
-        env: 
-          CI: true
 
   deploy:
     runs-on: ubuntu-latest
