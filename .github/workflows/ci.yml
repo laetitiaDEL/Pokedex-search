@@ -39,8 +39,9 @@ jobs:
 
       - name: Check if port is available
         env:
-          PORT: 5173
+          START_PORT: 5173
         run: |
+          PORT=$START_PORT
           while ! nc -z localhost $PORT; do
             echo "Port $PORT is in use, trying next port"
             PORT=$((PORT + 1))
