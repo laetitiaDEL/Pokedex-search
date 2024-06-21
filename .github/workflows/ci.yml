@@ -24,8 +24,6 @@ jobs:
   cypress-tests:
     runs-on: ubuntu-latest
     needs: build
-    env:
-      PORT: 5175
 
     steps:
       - name: Checkout code
