@@ -5,7 +5,7 @@ export function PokemonDetail({pokemon}){
         <div>
             <p>n°{pokemon.id}</p>
             <img src={pokemon.image} width="50%" height= "auto"/>
-            <h2>{pokemon.name}</h2>
+            <h2 className="pokemon-card">{pokemon.name}</h2>
             <p>Types</p>
             {(pokemon.apiTypes).map((type, index) => (
                 <img src={type.image} key={index} style={{height: '20px', width: '20px'}}/>
