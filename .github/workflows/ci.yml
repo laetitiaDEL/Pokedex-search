@@ -39,10 +39,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Start and wait
-        run: npm run dev & wait-on http://localhost:${{ env.PORT }} --timeout 30000 
+      - name: Check if port is available
+        run: |
+          while ! nc -z localhost $PORT; do
+            echo "Port $PORT is in use, trying next port"
+            PORT=$((PORT + 1))
+          done
+          echo "Using port $PORT"
 
-      - name: Run Cypress
+      - name: Start server
+        run: npm run dev -- --port $PORT
+
+      - name: Run Cypress tests
         run: npx cypress run
 
   deploy:
