@@ -10,7 +10,7 @@ export function SearchBar({onChangeSearch}){
     return (
         <div style={{display: "flex", textAlign: "center"}}>
             <form onSubmit={handleForm} style={{textAlign: "center"}}>
-                <input type="text" name="search"/>
+                <input placeholder="Search Pokémon" type="text" name="search"/>
                 <button>Search</button>
             </form>
 
