@@ -46,7 +46,7 @@ jobs:
           echo "Using port $PORT"
 
       - name: Start server
-        run: npm run dev -- --port $PORT
+        run: npm run dev --port $PORT
 
       - name: Run Cypress tests
         run: npx cypress run
