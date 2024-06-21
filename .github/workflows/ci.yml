@@ -44,7 +44,7 @@ jobs:
         run: npx cypress run
         with:
           start: npm start
-          wait-on: http://localhost:3000
+          wait-on: http://localhost:5174/
           browser: chrome
         continue-on-error: false
 
