@@ -21,12 +21,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Start
-        run: npm run dev --host
+      - name: Start Vite server
+        run: npx vite --host --port 5174 &
+        env:
+          CI: true
+
+      - name: Wait for Vite to be ready
+        run: npx wait-on http://127.0.0.1:5174
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
           wait-on: http://127.0.0.1:5174
-          start: npx vite --host
+          start: npx vite --host --port 5174
           browser: chrome
