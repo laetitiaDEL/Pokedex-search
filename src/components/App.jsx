@@ -38,6 +38,7 @@ export function App({pokemons}){
 
     return (
         <div style={{display: "flex"}}>
+            <h1> Pokedex Search </h1>
 
             <PokemonList pokemons={filteredPokemons} onPokemonClick={newCurrent}/>
  
