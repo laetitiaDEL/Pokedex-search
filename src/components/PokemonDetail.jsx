@@ -2,7 +2,7 @@
 export function PokemonDetail({pokemon}){
 
     return (
-        <div>
+        <div className="pokemonDetails">
             <p>n°{pokemon.id}</p>
             <img src={pokemon.image} width="50%" height= "auto"/>
             <h2 className="pokemon-card">{pokemon.name}</h2>
